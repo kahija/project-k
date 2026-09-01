@@ -1,0 +1,258 @@
+// src/sections/Projects/Projects.tsx
+
+import type { Theme } from "../../App";
+
+import projectK from "../../styles/assets/projects/project-k.webp";
+import boatRental from "../../styles/assets/projects/boat-rental.webp";
+
+type ProjectsProps = {
+  theme: Theme;
+};
+
+const projects = [
+  {
+    number: "01",
+    category: "Projet personnel",
+    title: "Project K",
+    subtitle: "Portfolio personnel",
+    description:
+      "Une interface immersive pensée pour présenter mon univers, mes projets et ma façon de concevoir des expériences web.",
+    tags: ["React", "TypeScript", "Tailwind", "UI Design"],
+    image: projectK,
+  },
+  {
+    number: "02",
+    category: "Projet client",
+    title: "Boat Rental Platform",
+    subtitle: "Site vitrine anonymisé",
+    description:
+      "Un site responsive pour une activité de location de bateau, pensé pour présenter les offres, rassurer l’utilisateur et faciliter la prise de contact.",
+    tags: ["React", "Responsive", "Netlify", "UI Design"],
+    image: boatRental,
+  },
+];
+
+export function Projects({ theme }: ProjectsProps) {
+  const isDark = theme === "dark";
+
+  return (
+    <section
+      id="projects"
+      className={`
+        relative z-20 -mt-14
+        px-4 pb-28
+        transition-colors duration-700
+        sm:px-6
+        lg:-mt-16 lg:pl-24 lg:pr-8
+
+        ${isDark ? "bg-[#050507]" : "bg-[#f3eee8]"}
+      `}
+    >
+      <div className="mx-auto max-w-[1480px]">
+        {/* TITRE DE SECTION */}
+        <div className="mb-8 px-2 md:mb-10">
+          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.45em] text-violet-300/80">
+            Projets sélectionnés
+          </p>
+        </div>
+
+        {/* PROJETS */}
+        <div className="space-y-8">
+          {projects.map((project) => (
+            <article
+              key={project.number}
+              className={`
+                group
+                grid
+                overflow-hidden
+                rounded-[2.5rem]
+                border
+                transition-all duration-500
+
+                lg:grid-cols-[420px_minmax(0,1fr)]
+                xl:grid-cols-[470px_minmax(0,1fr)]
+
+                ${
+                  isDark
+                    ? `
+                      border-white/[0.08]
+                      bg-[linear-gradient(135deg,rgba(255,255,255,0.065),rgba(255,255,255,0.015))]
+                      shadow-[0_20px_80px_rgba(0,0,0,0.35)]
+                    `
+                    : `
+                      border-black/[0.08]
+                      bg-[linear-gradient(135deg,rgba(255,255,255,0.75),rgba(215,205,235,0.18))]
+                      shadow-[0_20px_60px_rgba(80,60,100,0.10)]
+                    `
+                }
+              `}
+            >
+              {/* TEXTE */}
+              <div className="flex flex-col justify-between p-7 md:p-9 lg:p-10 xl:p-12">
+                <div>
+                  {/* NUMÉRO + CATÉGORIE */}
+                  <div className="flex items-start gap-8">
+                    <span
+                      className={`
+                        font-serif text-5xl leading-none xl:text-6xl
+
+                        ${isDark ? "text-violet-300/35" : "text-violet-700/25"}
+                      `}
+                    >
+                      {project.number}
+                    </span>
+
+                    <div className="pt-2">
+                      <p className="text-[0.62rem] font-semibold uppercase tracking-[0.4em] text-violet-300/80">
+                        {project.category}
+                      </p>
+
+                      <div className="mt-6 h-px w-11 bg-violet-300" />
+                    </div>
+                  </div>
+
+                  {/* INFORMATIONS */}
+                  <div className="mt-14 lg:ml-[88px]">
+                    <p
+                      className={`
+                        mb-3 text-sm
+                        ${isDark ? "text-white/45" : "text-black/45"}
+                      `}
+                    >
+                      {project.subtitle}
+                    </p>
+
+                    <h3
+                      className={`
+                        max-w-[340px]
+                        font-serif
+                        text-[2.7rem]
+                        leading-[0.96]
+                        tracking-[-0.03em]
+
+                        ${isDark ? "text-[#f5f1eb]" : "text-[#18151d]"}
+                      `}
+                    >
+                      {project.title}
+                    </h3>
+
+                    <p
+                      className={`
+                        mt-6 max-w-[360px]
+                        text-[0.95rem] leading-7
+
+                        ${isDark ? "text-white/58" : "text-black/60"}
+                      `}
+                    >
+                      {project.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* TAGS */}
+                <div className="mt-10 flex flex-wrap gap-2.5 lg:ml-[88px]">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className={`
+                        rounded-full
+                        border
+                        px-4 py-2
+                        text-xs
+
+                        ${
+                          isDark
+                            ? "border-white/10 text-white/55"
+                            : "border-black/10 text-black/55"
+                        }
+                      `}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* MOCKUP */}
+              <div
+                className="
+                  flex
+                  items-center
+                  justify-center
+                  p-5
+                  md:p-7
+                  lg:p-8
+                  xl:p-10
+                "
+              >
+                <div
+                  className={`
+                    relative
+                    w-full
+                    max-w-[900px]
+                    overflow-hidden
+                    rounded-[1.8rem]
+                    border
+                    p-[6px]
+                    transition-transform
+                    duration-700
+                    ease-out
+
+                    group-hover:-translate-y-1
+
+                    ${
+                      isDark
+                        ? `
+                          border-white/20
+                          bg-[#111217]
+                          shadow-[0_30px_80px_rgba(0,0,0,0.58)]
+                        `
+                        : `
+                          border-black/15
+                          bg-white/85
+                          shadow-[0_25px_65px_rgba(70,50,90,0.14)]
+                        `
+                    }
+                  `}
+                >
+                  {/* WEBCAM */}
+                  <span
+                    className={`
+                      absolute
+                      left-1/2
+                      top-[3px]
+                      z-20
+                      h-[4px]
+                      w-[4px]
+                      -translate-x-1/2
+                      rounded-full
+
+                      ${isDark ? "bg-white/15" : "bg-black/20"}
+                    `}
+                  />
+
+                  {/* ÉCRAN */}
+                  <div className="overflow-hidden rounded-[1.45rem] bg-black">
+                    <img
+                      src={project.image}
+                      alt={`Aperçu de ${project.title}`}
+                      className="
+                        block
+                        h-auto
+                        w-full
+                        transition-transform
+                        duration-700
+                        ease-out
+                        group-hover:scale-[1.01]
+                      "
+                    />
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

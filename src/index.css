@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --font-serif: "Didot", "Bodoni 72", "Bodoni MT", "Times New Roman", serif;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -15,8 +19,7 @@ body {
   background: #09090b;
 }
 
-button,
-a {
+button {
   font: inherit;
 }
 
