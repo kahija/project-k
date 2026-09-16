@@ -5,6 +5,11 @@ import type { Theme } from "../../App";
 import projectK from "../../styles/assets/projects/project-k.webp";
 import boatRental from "../../styles/assets/projects/boat-rental.webp";
 
+import kokeshiApplication from "../../styles/assets/projects/komekokeshi/application.webp";
+import kokeshiCover from "../../styles/assets/projects/komekokeshi/direction-visuelle.webp";
+import kokeshiStep from "../../styles/assets/projects/komekokeshi/maquette-etape.webp";
+import kokeshiConcept from "../../styles/assets/projects/komekokeshi/planche-concept.webp";
+
 type ProjectsProps = {
   theme: Theme;
 };
@@ -29,6 +34,28 @@ const projects = [
       "Un site responsive pour une activité de location de bateau, pensé pour présenter les offres, rassurer l’utilisateur et faciliter la prise de contact.",
     tags: ["React", "Responsive", "Netlify", "UI Design"],
     image: boatRental,
+  },
+  {
+    number: "03",
+    category: "Projet personnel",
+    title: "KomeKokeshi",
+    subtitle: "En cours de développement",
+    description:
+      "Prototype fonctionnel d’une application de cuisine guidée, développé avec React et TypeScript. Le parcours de préparation est utilisable ; l’import de recettes et l’animation de la Kokeshi sont les prochaines évolutions.",
+    tags: ["React", "TypeScript", "Vite", "Responsive"],
+    image: kokeshiApplication,
+    demo: "https://kahija.github.io/komekokeshi/",
+    repository: "https://github.com/kahija/komekokeshi",
+  },
+];
+
+const kokeshiConcepts = [
+  { image: kokeshiCover, title: "Vue d'ensemble", wide: true },
+  { image: kokeshiStep, title: "Préparation pas à pas", wide: false },
+  {
+    image: kokeshiConcept,
+    title: "Expressions et gestes de la Kokeshi",
+    wide: false,
   },
 ];
 
@@ -235,6 +262,7 @@ export function Projects({ theme }: ProjectsProps) {
                   <div className="overflow-hidden rounded-[1.45rem] bg-black">
                     <img
                       src={project.image}
+                      loading="lazy"
                       alt={`Aperçu de ${project.title}`}
                       className="
                         block
@@ -249,6 +277,98 @@ export function Projects({ theme }: ProjectsProps) {
                   </div>
                 </div>
               </div>
+              {project.demo && (
+                <div
+                  className={`
+                    min-w-0 border-t p-7 md:p-9 lg:col-span-2
+                    ${
+                      isDark
+                        ? "border-white/10 text-white/75"
+                        : "border-black/10 text-black/75"
+                    }
+                  `}
+                >
+                  <p className="text-sm">
+                    Ci-dessus : une capture réelle du prototype actuel.
+                  </p>
+
+                  <div className="mt-5 flex flex-wrap gap-4">
+                    <a
+                      className="
+                        rounded-full bg-violet-200 px-5 py-3 text-sm font-semibold
+                        text-violet-950 hover:bg-violet-100
+                        focus-visible:outline-2 focus-visible:outline-offset-4
+                        focus-visible:outline-violet-400
+                      "
+                      href={project.demo}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Voir l'application ↗
+                    </a>
+
+                    <a
+                      className="
+                        rounded-full border border-current px-5 py-3 text-sm
+                        font-semibold hover:underline
+                        focus-visible:outline-2 focus-visible:outline-offset-4
+                        focus-visible:outline-violet-400
+                      "
+                      href={project.repository}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Explorer le code ↗
+                    </a>
+                  </div>
+
+                  <details className="mt-7">
+                    <summary className="cursor-pointer py-2 font-semibold focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-400">
+                      Maquettes — direction visuelle envisagée
+                    </summary>
+
+                    <p className="mt-3 max-w-3xl text-sm leading-7">
+                      Ces maquettes présentent l'univers visuel souhaité.
+                      L'import de recettes et l'animation des gestes sont prévus
+                      pour la suite du projet.
+                    </p>
+
+                    <div className="mt-6 grid gap-6 md:grid-cols-2">
+                      {kokeshiConcepts.map((concept) => (
+                        <figure
+                          key={concept.title}
+                          className={`min-w-0 ${
+                            concept.wide ? "md:col-span-2" : ""
+                          }`}
+                        >
+                          <a
+                            href={concept.image}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="
+                              block rounded-2xl
+                              focus-visible:outline-2 focus-visible:outline-offset-4
+                              focus-visible:outline-violet-400
+                            "
+                            aria-label={`Agrandir : ${concept.title} (nouvel onglet)`}
+                          >
+                            <img
+                              src={concept.image}
+                              alt={`Maquette KomeKokeshi - ${concept.title}`}
+                              loading="lazy"
+                              className="h-auto w-full rounded-2xl"
+                            />
+                          </a>
+
+                          <figcaption className="mt-3 text-sm">
+                            {concept.title}
+                          </figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  </details>
+                </div>
+              )}
             </article>
           ))}
         </div>

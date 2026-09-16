@@ -144,10 +144,10 @@ export function Hero({ theme, setTheme }: HeroProps) {
           </a>
 
           <a
-            href="#approach"
+            href="#skills"
             className={isDark ? "hover:text-white" : "hover:text-black"}
           >
-            Approche
+            Compétences
           </a>
 
           <a
