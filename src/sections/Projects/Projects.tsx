@@ -24,16 +24,19 @@ const projects = [
       "Une interface immersive pensée pour présenter mon univers, mes projets et ma façon de concevoir des expériences web.",
     tags: ["React", "TypeScript", "Tailwind", "UI Design"],
     image: projectK,
+    repository: "https://github.com/kahija/project-k",
   },
   {
     number: "02",
     category: "Projet client",
-    title: "Boat Rental Platform",
+    title: "Maison Flottante",
     subtitle: "Site vitrine anonymisé",
     description:
-      "Un site responsive pour une activité de location de bateau, pensé pour présenter les offres, rassurer l’utilisateur et faciliter la prise de contact.",
+      "Version anonymisée d’un site client pour un séjour à bord d’un bateau. Une interface responsive pour découvrir les cabines et les espaces de vie, avec des visuels de remplacement générés par IA.",
     tags: ["React", "Responsive", "Netlify", "UI Design"],
     image: boatRental,
+    demo: "https://maison-flottante.netlify.app/",
+    repository: "https://github.com/kahija/maison-flottante",
   },
   {
     number: "03",
@@ -74,13 +77,13 @@ export function Projects({ theme }: ProjectsProps) {
         sm:px-6
         lg:-mt-16 lg:pl-24 lg:pr-8
 
-        ${isDark ? "bg-[#050507]" : "bg-[#f3eee8]"}
+        ${isDark ? "bg-[#050507]" : "bg-[#f5f0ea]"}
       `}
     >
       <div className="mx-auto max-w-[1480px]">
         {/* TITRE DE SECTION */}
         <div className="mb-8 px-2 md:mb-10">
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.45em] text-violet-300/80">
+          <p className={`text-[0.65rem] font-semibold uppercase tracking-[0.45em] ${isDark ? "text-violet-300" : "text-violet-800"}`}>
             Projets sélectionnés
           </p>
         </div>
@@ -132,7 +135,7 @@ export function Projects({ theme }: ProjectsProps) {
                     </span>
 
                     <div className="pt-2">
-                      <p className="text-[0.62rem] font-semibold uppercase tracking-[0.4em] text-violet-300/80">
+                      <p className={`text-[0.62rem] font-semibold uppercase tracking-[0.4em] ${isDark ? "text-violet-300" : "text-violet-800"}`}>
                         {project.category}
                       </p>
 
@@ -175,6 +178,9 @@ export function Projects({ theme }: ProjectsProps) {
                     >
                       {project.description}
                     </p>
+                    {!project.demo && project.repository && (
+                      <a href={project.repository} target="_blank" rel="noreferrer" className={`mt-5 inline-flex min-h-11 items-center border-b text-sm ${isDark ? "text-white/80" : "text-black/80"}`}>Voir le code sur GitHub ↗</a>
+                    )}
                     {project.contribution && (
                       <p className={`mt-5 max-w-[360px] border-l pl-4 text-sm leading-6 ${isDark ? "border-violet-300/40 text-white/65" : "border-violet-700/40 text-black/65"}`}>
                         {project.contribution}
@@ -295,9 +301,9 @@ export function Projects({ theme }: ProjectsProps) {
                     }
                   `}
                 >
-                  <p className="text-sm">
+                  {project.title === "KomeKokeshi" && <p className="text-sm">
                     Ci-dessus : une capture réelle du prototype actuel.
-                  </p>
+                  </p>}
 
                   <div className="mt-5 flex flex-wrap gap-4">
                     <a
@@ -311,7 +317,7 @@ export function Projects({ theme }: ProjectsProps) {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Voir l'application ↗
+                      {project.title === "KomeKokeshi" ? "Voir l’application" : "Voir le site"} ↗
                     </a>
 
                     <a
@@ -329,7 +335,7 @@ export function Projects({ theme }: ProjectsProps) {
                     </a>
                   </div>
 
-                  <details className="mt-7">
+                  {project.title === "KomeKokeshi" && <details className="mt-7">
                     <summary className="cursor-pointer py-2 font-semibold focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-400">
                       Maquettes — direction visuelle envisagée
                     </summary>
@@ -373,7 +379,7 @@ export function Projects({ theme }: ProjectsProps) {
                         </figure>
                       ))}
                     </div>
-                  </details>
+                  </details>}
                 </div>
               )}
             </article>

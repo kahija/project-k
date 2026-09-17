@@ -74,7 +74,7 @@ export function Stack({ theme }: StackProps) {
             `}
           >
             <div>
-              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.45em] text-violet-300/80">
+              <p className={`text-[0.65rem] font-semibold uppercase tracking-[0.45em] ${isDark ? "text-violet-300" : "text-violet-800"}`}>
                 Compétences
               </p>
 

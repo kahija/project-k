@@ -17,7 +17,7 @@ export function Hero({ theme }: HeroProps) {
       className={`
         relative min-h-screen overflow-hidden pt-20
         transition-colors duration-700
-        ${isDark ? "bg-[#050507] text-white" : "bg-[#f3eee8] text-[#18151d]"}
+        ${isDark ? "bg-[#050507] text-white" : "bg-[#f5f0ea] text-[#18151d]"}
       `}
     >
 
