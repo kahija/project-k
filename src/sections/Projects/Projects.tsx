@@ -39,6 +39,7 @@ const projects = [
     number: "03",
     category: "Projet personnel",
     title: "KomeKokeshi",
+    contribution: "Concept et univers du personnage imaginés par mes soins. Développement assisté par IA ; visuels générés à partir de mes indications.",
     subtitle: "En cours de développement",
     description:
       "Prototype fonctionnel d’une application de cuisine guidée, développé avec React et TypeScript. Le parcours de préparation est utilisable ; l’import de recettes et l’animation de la Kokeshi sont les prochaines évolutions.",
@@ -65,6 +66,7 @@ export function Projects({ theme }: ProjectsProps) {
   return (
     <section
       id="projects"
+      tabIndex={-1}
       className={`
         relative z-20 -mt-14
         px-4 pb-28
@@ -173,6 +175,11 @@ export function Projects({ theme }: ProjectsProps) {
                     >
                       {project.description}
                     </p>
+                    {project.contribution && (
+                      <p className={`mt-5 max-w-[360px] border-l pl-4 text-sm leading-6 ${isDark ? "border-violet-300/40 text-white/65" : "border-violet-700/40 text-black/65"}`}>
+                        {project.contribution}
+                      </p>
+                    )}
                   </div>
                 </div>
 
