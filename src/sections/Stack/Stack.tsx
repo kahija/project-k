@@ -43,6 +43,7 @@ export function Stack({ theme }: StackProps) {
   return (
     <section
       id="skills"
+      tabIndex={-1}
       className={`
         overflow-hidden px-4 py-24 transition-colors duration-700
         sm:px-6
@@ -114,8 +115,8 @@ export function Stack({ theme }: StackProps) {
                   key={skill.title}
                   className={`
                     group grid gap-4 border-l px-5 py-5 transition-all duration-300
-                    sm:grid-cols-[64px_1fr]
-                    lg:grid-cols-[70px_0.7fr_1fr]
+                    sm:grid-cols-[48px_minmax(0,1fr)]
+                    lg:grid-cols-[48px_minmax(0,0.7fr)_minmax(0,1fr)]
                     ${
                       isDark
                         ? "border-white/10 hover:border-violet-300/70 hover:bg-white/[0.035]"
@@ -136,7 +137,7 @@ export function Stack({ theme }: StackProps) {
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
-                  <div>
+                  <div className="min-w-0">
                     <h3 className="text-lg font-medium">{skill.title}</h3>
                     <div className="mt-4 flex flex-wrap gap-x-3 gap-y-2 lg:hidden">
                       {skill.items.map((item) => (
@@ -153,7 +154,7 @@ export function Stack({ theme }: StackProps) {
                     </div>
                   </div>
 
-                  <div>
+                  <div className="min-w-0 sm:col-start-2 lg:col-start-3 lg:row-start-1">
                     <p
                       className={`
                         max-w-[460px] text-sm leading-6
