@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Navigation } from "./Navigation";
+import { About } from "./sections/About";
 
 import { Hero } from "./sections/Hero/Hero";
 import { Projects } from "./sections/Projects/Projects";
@@ -11,9 +13,11 @@ function App() {
 
   return (
     <>
+      <Navigation theme={theme} setTheme={setTheme} />
       <Hero theme={theme} setTheme={setTheme} />
       <Projects theme={theme} />
       <Stack theme={theme} />
+      <About theme={theme} />
     </>
   );
 }

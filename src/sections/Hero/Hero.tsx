@@ -14,8 +14,10 @@ export function Hero({ theme, setTheme }: HeroProps) {
 
   return (
     <section
+      id="home"
+      tabIndex={-1}
       className={`
-        relative min-h-screen overflow-hidden
+        relative min-h-screen overflow-hidden pt-20
         transition-colors duration-700
         ${isDark ? "bg-[#050507] text-white" : "bg-[#f3eee8] text-[#18151d]"}
       `}
@@ -36,7 +38,7 @@ export function Hero({ theme, setTheme }: HeroProps) {
           className={`
           absolute
           left-1/2
-          top-7
+          top-7 hidden
           -translate-x-1/2
           font-serif
           text-[2.7rem]
@@ -97,82 +99,6 @@ export function Hero({ theme, setTheme }: HeroProps) {
         </div>
       </div>
 
-      {/* NAVBAR */}
-      <header
-        className="
-          relative z-30 mx-auto flex max-w-[1440px]
-          items-center justify-between
-          px-6 py-7
-          lg:pl-[140px] lg:pr-12
-          2xl:pl-[150px] 2xl:pr-16
-        "
-      >
-        {/* K. MOBILE */}
-        <a
-          href="/"
-          className={`
-            font-serif text-[2.2rem] font-medium leading-none
-            tracking-[-0.06em]
-            transition-colors duration-700 lg:hidden
-            ${isDark ? "text-white" : "text-[#18151d]"}
-          `}
-        >
-          K.
-        </a>
-
-        <nav
-          className={`
-            ml-auto hidden items-center
-            gap-9 text-sm
-            transition-colors duration-700
-            md:flex xl:gap-12
-            ${isDark ? "text-white/80" : "text-black/65"}
-          `}
-        >
-          <a
-            href="#projects"
-            className={isDark ? "hover:text-white" : "hover:text-black"}
-          >
-            Projets
-          </a>
-
-          <a
-            href="#about"
-            className={isDark ? "hover:text-white" : "hover:text-black"}
-          >
-            À propos
-          </a>
-
-          <a
-            href="#skills"
-            className={isDark ? "hover:text-white" : "hover:text-black"}
-          >
-            Compétences
-          </a>
-
-          <a
-            href="#contact"
-            className={isDark ? "hover:text-white" : "hover:text-black"}
-          >
-            Contact
-          </a>
-        </nav>
-
-        <button
-          type="button"
-          aria-label="Menu"
-          className={`
-            ml-auto rounded-full border px-4 py-2 text-sm md:hidden
-            ${
-              isDark
-                ? "border-white/15 text-white/80"
-                : "border-black/15 text-black/70"
-            }
-          `}
-        >
-          Menu
-        </button>
-      </header>
 
       {/* HERO */}
       <div
@@ -210,13 +136,13 @@ export function Hero({ theme, setTheme }: HeroProps) {
               whitespace-nowrap
               font-serif font-medium
               leading-[0.88]
-              tracking-[0.17em]
+              tracking-normal
               transition-colors duration-700
 
-              text-[clamp(4.4rem,7.2vw,7rem)]
+              text-[3.2rem] min-[380px]:text-6xl sm:text-7xl xl:text-8xl
 
               2xl:text-[7.4rem]
-              2xl:tracking-[0.2em]
+              2xl:tracking-normal
 
               ${isDark ? "text-white" : "text-[#18151d]"}
             `}

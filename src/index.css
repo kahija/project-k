@@ -10,6 +10,13 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+:focus-visible { outline: 2px solid #a78bfa; outline-offset: 5px; }
+section[tabindex="-1"]:focus { outline: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
 
 body {
