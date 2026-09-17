@@ -15,7 +15,7 @@ export function About({ theme }: { theme: Theme }) {
           </div>
           <div className={`space-y-6 text-base leading-8 ${dark ? "text-white/75" : "text-black/75"}`}>
             <p>De 2021 à 2025, j’ai travaillé chez Allonia sur des applications web avec React, Django et Symfony, en collaboration avec les équipes produit et design : intégration d’API, amélioration des interfaces, corrections et revues de code.</p>
-            <p>Je me suis formée au développement web à la Wild Code School en 2019, après un premier parcours dans l’accompagnement médico-social.</p>
+            <p>Je me suis formée au développement web à la Wild Code School en 2019.</p>
             <p>Aujourd’hui, je poursuis mes projets front-end avec une attention particulière au responsive, à la lisibilité du code et aux détails qui facilitent l’utilisation.</p>
           </div>
         </div>
