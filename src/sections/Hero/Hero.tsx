@@ -1,4 +1,3 @@
-import type { Dispatch, SetStateAction } from "react";
 import type { Theme } from "../../App";
 
 import heroHaloDark from "../../styles/assets/hero/hero-halo-dark.webp";
@@ -6,10 +5,9 @@ import heroHaloLight from "../../styles/assets/hero/hero-halo-light.webp";
 
 type HeroProps = {
   theme: Theme;
-  setTheme: Dispatch<SetStateAction<Theme>>;
 };
 
-export function Hero({ theme, setTheme }: HeroProps) {
+export function Hero({ theme }: HeroProps) {
   const isDark = theme === "dark";
 
   return (
@@ -22,82 +20,6 @@ export function Hero({ theme, setTheme }: HeroProps) {
         ${isDark ? "bg-[#050507] text-white" : "bg-[#f3eee8] text-[#18151d]"}
       `}
     >
-      {/* SIDEBAR */}
-      <div
-        className={`
-          absolute left-0 top-0 z-30 hidden h-full w-[84px] border-r
-          transition-colors duration-700 lg:block
-          ${isDark ? "border-white/10" : "border-black/10"}
-        `}
-      >
-        {/* LOGO K. */}
-        {/* LOGO K. */}
-        <a
-          href="/"
-          aria-label="Accueil"
-          className={`
-          absolute
-          left-1/2
-          top-7 hidden
-          -translate-x-1/2
-          font-serif
-          text-[2.7rem]
-          font-normal
-          leading-none
-          tracking-[-0.06em]
-          transition-colors
-          duration-700
-          ${isDark ? "text-[#f5f1eb]" : "text-[#18151d]"}
-        `}
-        >
-          K.
-        </a>
-
-        {/* LIGHT / DARK */}
-        <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
-          <button
-            type="button"
-            onClick={() => setTheme("light")}
-            aria-label="Activer le thème clair"
-            className={`
-              text-lg transition-all duration-300
-              ${!isDark ? "text-violet-500" : "text-white/55 hover:text-white"}
-            `}
-          >
-            ☼
-          </button>
-
-          <div
-            className={`
-              relative my-3 h-24 w-px
-              ${isDark ? "bg-white/25" : "bg-black/20"}
-            `}
-          >
-            <span
-              className={`
-                absolute left-1/2 h-6 w-6 -translate-x-1/2
-                rounded-full border border-violet-300 p-1
-                transition-all duration-500 ease-out
-                ${isDark ? "top-[calc(100%-24px)]" : "top-0"}
-              `}
-            >
-              <span className="block h-full w-full rounded-full bg-violet-400 shadow-[0_0_16px_rgba(167,139,250,0.7)]" />
-            </span>
-          </div>
-
-          <button
-            type="button"
-            onClick={() => setTheme("dark")}
-            aria-label="Activer le thème sombre"
-            className={`
-              text-lg transition-all duration-300
-              ${isDark ? "text-violet-300" : "text-black/45 hover:text-black"}
-            `}
-          >
-            ☾
-          </button>
-        </div>
-      </div>
 
 
       {/* HERO */}
