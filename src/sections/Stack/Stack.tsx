@@ -106,21 +106,20 @@ export function Stack({ theme }: StackProps) {
 
             <div
               className={`
-                space-y-3 xl:border-l xl:pl-9
-                ${isDark ? "xl:border-white/10" : "xl:border-black/10"}
+                min-w-0 xl:pl-9
               `}
             >
               {skills.map((skill, index) => (
                 <article
                   key={skill.title}
                   className={`
-                    group grid gap-4 border-l px-5 py-5 transition-all duration-300
+                    group grid gap-4 border-t first:border-t-0 px-5 py-5 transition-colors duration-300
                     sm:grid-cols-[48px_minmax(0,1fr)]
                     lg:grid-cols-[48px_minmax(0,0.7fr)_minmax(0,1fr)]
                     ${
                       isDark
-                        ? "border-white/10 hover:border-violet-300/70 hover:bg-white/[0.035]"
-                        : "border-black/10 hover:border-violet-500/60 hover:bg-white/55"
+                        ? "border-white/10 hover:bg-white/[0.035]"
+                        : "border-black/10 hover:bg-white/55"
                     }
                   `}
                 >
