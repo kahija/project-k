@@ -346,7 +346,7 @@ export function Projects({ theme }: ProjectsProps) {
                       pour la suite du projet.
                     </p>
 
-                    <div className="mt-6 grid gap-6 md:grid-cols-2">
+                    <div className="mx-auto mt-6 grid max-w-[960px] gap-6 md:grid-cols-2">
                       {kokeshiConcepts.map((concept) => (
                         <figure
                           key={concept.title}
@@ -369,7 +369,7 @@ export function Projects({ theme }: ProjectsProps) {
                               src={concept.image}
                               alt={`Maquette KomeKokeshi - ${concept.title}`}
                               loading="lazy"
-                              className="h-auto w-full rounded-2xl"
+                              className="mx-auto h-auto max-h-[440px] w-full rounded-lg object-contain"
                             />
                           </a>
 
