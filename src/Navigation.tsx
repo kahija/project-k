@@ -65,8 +65,8 @@ export function Navigation({ theme, setTheme }: { theme: Theme; setTheme: (theme
   return (
     <header className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${dark ? "text-white" : "text-[#18151d]"} ${scrolled || open ? dark ? "border-white/10 bg-[#050507]/95 backdrop-blur-md" : "border-black/10 bg-white/95 backdrop-blur-md" : "border-transparent"}`}>
       <div className="mx-auto flex h-20 max-w-[1480px] items-center justify-between px-6 lg:px-10">
-        <a href="#home" aria-label="Kahina, accueil" className="font-serif text-4xl" onClick={() => navigate("home")}>K.</a>
-        <nav aria-label="Navigation principale" className="hidden items-center gap-9 md:flex">
+        <a href="#home" aria-label="Kahina, accueil" className="flex h-11 items-center font-serif text-4xl md:absolute md:left-0 md:top-0 md:h-20 md:w-[72px] md:justify-center" onClick={() => navigate("home")}>K.</a>
+        <nav aria-label="Navigation principale" className="ml-auto hidden items-center gap-9 md:flex">
           {links.map(link => <a key={link.id} href={`#${link.id}`} aria-current={active === link.id ? "location" : undefined} onClick={() => navigate(link.id)} className={`border-b-2 py-3 text-sm transition-colors ${active === link.id ? dark ? "border-violet-300" : "border-violet-700" : "border-transparent opacity-70 hover:opacity-100"}`}>{link.label}</a>)}
         </nav>
         <button ref={toggle} type="button" aria-label={open ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)} className="flex h-11 w-11 items-center justify-center md:hidden">{open ? <X size={24} /> : <Menu size={24} />}</button>
