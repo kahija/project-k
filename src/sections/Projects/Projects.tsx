@@ -373,7 +373,7 @@ export function Projects({ theme }: ProjectsProps) {
                             />
                           </a>
 
-                          <figcaption className="mt-3 text-sm">
+                          <figcaption className="mt-3 px-2 text-center text-sm leading-6">
                             {concept.title}
                           </figcaption>
                         </figure>
