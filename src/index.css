@@ -30,6 +30,19 @@ button {
   font: inherit;
 }
 
+@media (max-width: 767px) {
+  .hero-art {
+    top: auto;
+    bottom: -130px;
+    right: -120px;
+    width: 640px;
+    max-width: none;
+    transform: none;
+    mask-image: linear-gradient(to bottom, transparent, black 45%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 45%);
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;

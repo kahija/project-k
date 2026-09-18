@@ -15,7 +15,7 @@ export function Hero({ theme }: HeroProps) {
       id="home"
       tabIndex={-1}
       className={`
-        relative min-h-screen overflow-hidden pt-20
+        relative overflow-hidden pt-20 md:min-h-screen
         transition-colors duration-700
         ${isDark ? "bg-[#050507] text-white" : "bg-[#f5f0ea] text-[#18151d]"}
       `}
@@ -26,10 +26,10 @@ export function Hero({ theme }: HeroProps) {
       <div
         className="
           relative mx-auto grid
-          min-h-[calc(100vh-88px)]
+          min-h-[620px] md:min-h-[calc(100vh-88px)]
           max-w-[1440px]
-          items-center
-          px-6 pb-32 pt-6
+          items-start md:items-center
+          px-6 pb-56 pt-16 md:pb-32 md:pt-6
 
           lg:grid-cols-[0.9fr_1.1fr]
           lg:pl-[140px]
@@ -46,7 +46,7 @@ export function Hero({ theme }: HeroProps) {
           <p
             className="
               mb-7 text-[0.7rem] font-medium uppercase
-              tracking-[0.5em] text-violet-400
+              tracking-normal md:tracking-[0.5em] text-violet-400
               xl:mb-8 xl:text-xs xl:tracking-[0.55em]
             "
           >
@@ -121,7 +121,7 @@ export function Hero({ theme }: HeroProps) {
           alt=""
           aria-hidden
           className={`
-          pointer-events-none 
+          hero-art pointer-events-none 
           absolute right-[-30%] 
           top-[42%]
           -translate-y-1/2
@@ -152,7 +152,7 @@ export function Hero({ theme }: HeroProps) {
           alt=""
           aria-hidden
           className={`
-          pointer-events-none
+          hero-art pointer-events-none
           absolute
           right-[-30%]
           top-[42%]
