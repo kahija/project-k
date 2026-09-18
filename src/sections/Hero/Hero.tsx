@@ -139,6 +139,9 @@ export function Hero({ theme }: HeroProps) {
           2xl:right-[-320px]
           2xl:w-[1500px]
 
+          [mask-image:linear-gradient(to_right,transparent_0%,black_32%)]
+          [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_32%)]
+
           ${isDark ? "opacity-90" : "opacity-0"}
         `}
         />
