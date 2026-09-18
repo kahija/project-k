@@ -2,66 +2,12 @@
 
 import type { Theme } from "../../App";
 
-import projectK from "../../styles/assets/projects/project-k.webp";
-import boatRental from "../../styles/assets/projects/boat-rental.webp";
-
-import kokeshiApplication from "../../styles/assets/projects/komekokeshi/application.webp";
-import kokeshiCover from "../../styles/assets/projects/komekokeshi/direction-visuelle.webp";
-import kokeshiStep from "../../styles/assets/projects/komekokeshi/maquette-etape.webp";
-import kokeshiConcept from "../../styles/assets/projects/komekokeshi/planche-concept.webp";
+import { projects } from "./projectsData";
+import { ConceptGallery } from "./ConceptGallery";
 
 type ProjectsProps = {
   theme: Theme;
 };
-
-const projects = [
-  {
-    number: "01",
-    category: "Projet personnel",
-    title: "Project K",
-    subtitle: "Portfolio personnel",
-    description:
-      "Une interface immersive pensée pour présenter mon univers, mes projets et ma façon de concevoir des expériences web.",
-    tags: ["React", "TypeScript", "Tailwind", "UI Design"],
-    image: projectK,
-    repository: "https://github.com/kahija/project-k",
-  },
-  {
-    number: "02",
-    category: "Projet client",
-    title: "Maison Flottante",
-    subtitle: "Site vitrine anonymisé",
-    description:
-      "Version anonymisée d’un site client pour un séjour à bord d’un bateau. Une interface responsive pour découvrir les cabines et les espaces de vie, avec des visuels de remplacement générés par IA.",
-    tags: ["React", "Responsive", "Netlify", "UI Design"],
-    image: boatRental,
-    demo: "https://maison-flottante.netlify.app/",
-    repository: "https://github.com/kahija/maison-flottante",
-  },
-  {
-    number: "03",
-    category: "Projet personnel",
-    title: "KomeKokeshi",
-    contribution: "Concept et univers du personnage imaginés par mes soins. Développement assisté par IA ; visuels générés à partir de mes indications.",
-    subtitle: "En cours de développement",
-    description:
-      "Prototype fonctionnel d’une application de cuisine guidée, développé avec React et TypeScript. Le parcours de préparation est utilisable ; l’import de recettes et l’animation de la Kokeshi sont les prochaines évolutions.",
-    tags: ["React", "TypeScript", "Vite", "Responsive"],
-    image: kokeshiApplication,
-    demo: "https://kahija.github.io/komekokeshi/",
-    repository: "https://github.com/kahija/komekokeshi",
-  },
-];
-
-const kokeshiConcepts = [
-  { image: kokeshiCover, title: "Vue d'ensemble", wide: true },
-  { image: kokeshiStep, title: "Préparation pas à pas", wide: false },
-  {
-    image: kokeshiConcept,
-    title: "Expressions et gestes de la Kokeshi",
-    wide: false,
-  },
-];
 
 export function Projects({ theme }: ProjectsProps) {
   const isDark = theme === "dark";
@@ -335,51 +281,7 @@ export function Projects({ theme }: ProjectsProps) {
                     </a>
                   </div>
 
-                  {project.title === "KomeKokeshi" && <details className="mt-7">
-                    <summary className="cursor-pointer py-2 font-semibold focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-400">
-                      Maquettes — direction visuelle envisagée
-                    </summary>
-
-                    <p className="mt-3 max-w-3xl text-sm leading-7">
-                      Ces maquettes présentent l'univers visuel souhaité.
-                      L'import de recettes et l'animation des gestes sont prévus
-                      pour la suite du projet.
-                    </p>
-
-                    <div className="mx-auto mt-6 grid max-w-[960px] gap-6 md:grid-cols-2">
-                      {kokeshiConcepts.map((concept) => (
-                        <figure
-                          key={concept.title}
-                          className={`min-w-0 ${
-                            concept.wide ? "md:col-span-2" : ""
-                          }`}
-                        >
-                          <a
-                            href={concept.image}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="
-                              block rounded-2xl
-                              focus-visible:outline-2 focus-visible:outline-offset-4
-                              focus-visible:outline-violet-400
-                            "
-                            aria-label={`Agrandir : ${concept.title} (nouvel onglet)`}
-                          >
-                            <img
-                              src={concept.image}
-                              alt={`Maquette KomeKokeshi - ${concept.title}`}
-                              loading="lazy"
-                              className="mx-auto h-auto max-h-[440px] w-full rounded-lg object-contain"
-                            />
-                          </a>
-
-                          <figcaption className="mt-3 px-2 text-center text-sm leading-6">
-                            {concept.title}
-                          </figcaption>
-                        </figure>
-                      ))}
-                    </div>
-                  </details>}
+                  {project.title === "KomeKokeshi" && <ConceptGallery />}
                 </div>
               )}
             </article>

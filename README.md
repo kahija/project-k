@@ -10,7 +10,6 @@ Le projet présente une interface immersive en dark/light mode, une sélection d
 - TypeScript
 - Vite
 - Tailwind CSS
-- Framer Motion
 
 ## Lancer le projet
 
@@ -23,6 +22,7 @@ npm run dev
 
 ```bash
 npm run build
+npm run lint
 ```
 
 ## Déploiement

@@ -63,7 +63,7 @@ export function Navigation({ theme, setTheme }: { theme: Theme; setTheme: (theme
   };
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${dark ? "text-white" : "text-[#18151d]"} ${scrolled || open ? dark ? "border-white/10 bg-[#050507]/95 backdrop-blur-md" : "border-black/10 bg-white/95 backdrop-blur-md" : "border-transparent"}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-700 ${dark ? "text-white" : "text-[#18151d]"} ${scrolled || open ? dark ? "border-white/10 bg-[#050507]/95 backdrop-blur-md" : "border-black/10 bg-white/95 backdrop-blur-md" : "border-transparent"}`}>
       <div className="mx-auto flex h-20 max-w-[1480px] items-center justify-between px-6 lg:px-10">
         <a href="#home" aria-label="Kahina, accueil" className="flex h-11 items-center font-serif text-4xl md:absolute md:left-0 md:top-0 md:h-20 md:w-[72px] md:justify-center" onClick={() => navigate("home")}>K.</a>
         <nav aria-label="Navigation principale" className="ml-auto hidden items-center gap-9 md:flex">
@@ -72,7 +72,7 @@ export function Navigation({ theme, setTheme }: { theme: Theme; setTheme: (theme
         <button ref={toggle} type="button" aria-label={open ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)} className="flex h-11 w-11 items-center justify-center md:hidden">{open ? <X size={24} /> : <Menu size={24} />}</button>
       </div>
       {open && <div className="fixed inset-x-0 bottom-0 top-20 h-[calc(100dvh-5rem)] bg-black/50 md:hidden" onClick={() => { setOpen(false); toggle.current?.focus(); }}>
-        <div ref={panel} id="mobile-navigation" onClick={event => event.stopPropagation()} className={`max-h-full overflow-y-auto px-6 pb-8 pt-4 ${dark ? "bg-[#050507]" : "bg-white"}`}>
+        <div ref={panel} id="mobile-navigation" onClick={event => event.stopPropagation()} className={`transition-colors duration-700 max-h-full overflow-y-auto px-6 pb-8 pt-4 ${dark ? "bg-[#050507]" : "bg-white"}`}>
           <nav aria-label="Navigation mobile" className="flex flex-col">
             {links.map(link => <a key={link.id} href={`#${link.id}`} aria-current={active === link.id ? "location" : undefined} onClick={() => navigate(link.id)} className={`border-b py-5 font-serif text-3xl ${dark ? "border-white/10" : "border-black/10"} ${active === link.id ? dark ? "text-violet-300" : "text-violet-700" : ""}`}>{link.label}</a>)}
           </nav>

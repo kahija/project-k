@@ -5,7 +5,7 @@ export function About({ theme }: { theme: Theme }) {
   const dark = theme === "dark";
   return (
     <>
-      <section id="about" tabIndex={-1} className={`px-6 py-20 lg:pl-24 lg:pr-8 ${dark ? "bg-[#050507] text-white" : "bg-[#f5f0ea] text-[#18151d]"}`}>
+      <section id="about" tabIndex={-1} className={`transition-colors duration-700 px-6 py-20 lg:pl-24 lg:pr-8 ${dark ? "bg-[#050507] text-white" : "bg-[#f5f0ea] text-[#18151d]"}`}>
         <div className="mx-auto grid max-w-[1280px] gap-10 border-t border-current/15 pt-12 md:grid-cols-2 md:gap-16">
           <div>
             <p className={`mb-6 text-sm ${dark ? "text-violet-300" : "text-violet-800"}`}>À propos</p>
@@ -20,7 +20,7 @@ export function About({ theme }: { theme: Theme }) {
           </div>
         </div>
       </section>
-      <section id="contact" tabIndex={-1} className={`px-6 pb-20 lg:pl-24 lg:pr-8 ${dark ? "bg-[#101014] text-white" : "bg-[#f5f0ea] text-[#18151d]"}`}>
+      <section id="contact" tabIndex={-1} className={`transition-colors duration-700 px-6 pb-20 lg:pl-24 lg:pr-8 ${dark ? "bg-[#101014] text-white" : "bg-[#f5f0ea] text-[#18151d]"}`}>
         <div className="mx-auto max-w-[1280px] border-t border-current/15 pt-16">
           <p className={`mb-6 text-sm ${dark ? "text-violet-300" : "text-violet-800"}`}>Contact</p>
           <h2 className="max-w-2xl font-serif text-4xl leading-tight md:text-6xl">Parlons de votre projet.</h2>
