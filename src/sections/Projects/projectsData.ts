@@ -3,8 +3,6 @@ import boatRental from "../../styles/assets/projects/boat-rental.webp";
 
 import kokeshiApplication from "../../styles/assets/projects/komekokeshi/application.webp";
 import kokeshiCover from "../../styles/assets/projects/komekokeshi/direction-visuelle.webp";
-import kokeshiStep from "../../styles/assets/projects/komekokeshi/maquette-etape.webp";
-import kokeshiConcept from "../../styles/assets/projects/komekokeshi/planche-concept.webp";
 
 export const projects = [
   {
@@ -46,13 +44,5 @@ export const projects = [
 ];
 
 export const kokeshiConcepts = [
-  { image: kokeshiCover, title: "Vue d'ensemble", wide: true },
-  { image: kokeshiStep, title: "Préparation pas à pas", wide: false },
-  {
-    image: kokeshiConcept,
-    title: "Expressions et gestes de la Kokeshi",
-    wide: false,
-  },
+  { image: kokeshiCover, title: "Vue d’ensemble — direction visuelle envisagée" },
 ];
-
-
